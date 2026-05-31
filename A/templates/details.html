@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+{{ todo.title }} - Details
+{% endblock%}
+{% block content %}
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2>{{ todo.title }}</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">{{ todo.body }}</p>
+                
+                {% if todo.created %}
+                <p class="text-muted">
+                    <small>Created: {{ todo.created|date:"F j, Y" }}</small>
+                </p>
+                {% endif %}
+                
+                <a href="{% url 'home' %}" class="btn btn-secondary">
+                    ← Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+ {% endblock%}
